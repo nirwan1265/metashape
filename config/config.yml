@@ -14,6 +14,8 @@ project_path: "/mnt/ghowl/metaspace_projects/"
 run_name: "field01_rgb_run001"
 
 #GCPs files. 
+addGCGPs:
+    enabled: True
 
 buildDenseCloud: # (Metashape: buildDepthMaps, buildDenseCloud, classifyGroundPoints, and exportPoints)
     enabled: True
