@@ -33,6 +33,7 @@ if cfg["addGCPs"]["enabled"]:
 if cfg["buildDenseCloud"]["enabled"]:
     meta.build_dense_cloud(doc, log, run_id, cfg)
  
+#Building Elevation Model
 if cfg["buildDem"]["enabled"]:
     meta.build_dem(doc, log, run_id, cfg)
 
