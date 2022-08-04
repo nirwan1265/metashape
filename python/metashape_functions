@@ -1,0 +1,50 @@
+# Required functions
+
+# Import Modules
+import time
+import datetime
+import platform
+import os
+import glob
+import re
+import yaml
+import Metashape
+
+
+
+
+# Function for project setup 
+
+def project_setup(cfg):
+  '''
+  Creating project and output paths. 
+  Define a project ID based on photoset and time stamp
+  Define a log file
+  '''
+  
+def add_photos(doc, cfg):
+  '''
+  Adding photos to project and change their labels to include their containing folder
+  '''
+  
+  
+def add_gcps(doc, cfg):
+  '''
+  Adding GCP
+  '''
+  
+def align_photos(doc, log_file, cfg):
+  '''
+  Match photos
+  '''
+
+def build_dense_cloud(doc, log_file, run_id, cfg):
+  '''
+  Build depth maps and dense clouds
+  '''
+
+
+def build_orthomosaics(doc, log_file, run_id, cfg):
+  '''
+  Build prthomosaic. 
+  '''
