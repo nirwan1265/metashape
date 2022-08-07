@@ -22,6 +22,10 @@ def project_setup(cfg):
   Define a log file
   '''
   
+  #Make project folders, if not existing
+  if not os.path.exists(cfg["output_path"]):
+  
+  
 def add_photos(doc, cfg):
   '''
   Adding photos to project and change their labels to include their containing folder
