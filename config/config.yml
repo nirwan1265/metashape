@@ -15,7 +15,7 @@ run_name: "field01_rgb_run001"
 
 #GCPs files. 
 addGCGPs:
-    enabled: True
+    enabled: False
     
 alignPhotos: # (Metashape: alignPhotos)
     enabled: True
