@@ -1,6 +1,7 @@
-name: sklearn 
+name: metashape 
 channels:
   - conda-forge
+  - bioconda
 dependencies:
  - scikit-learn
  - matplotlib
@@ -8,3 +9,13 @@ dependencies:
  - pandas
  - matplotlib
  - scipy 
+ - Metashape
+ - time
+ - datetime
+ - os
+ - platform
+ - glob
+ - re
+ - pyyaml
+ - sys
+ 
