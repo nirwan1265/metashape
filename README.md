@@ -46,6 +46,22 @@ field_2 (main folder)
 
 ### Configurations
 * **Parameters:** All the parameters explaining the Metashape configuration are explained in the YAML-format config file. This includes all the paths to the input and out files, quality filters, etc. 
-* **Batch or Parallel Workflow:** A shell file that can run batch or parallel job is present in this repo. If you want to run jobs using different configurations, there is an R script that can combine "base" YAML file and a "derived" YAML file for each iterations. ,
+* **Batch or Parallel Workflow:** A shell file that can run batch or parallel job is present in this repo. If you want to run jobs using different configurations, there is an R script that can combine "base" YAML file and a "derived" YAML file for each iterations.
+
+
+## Creating a conda environment
+Create a conda environment from a YAML file in the repo, using:
+```
+conda env create --prefix /usr/local/usrapps/[your_path]/metashape -f packages_metashape.yml
+```
+Activate the environment by using:
+```
+conda activate /usr/local/usrapps/[your_path]/metashape
+```
+Deactivate the environment by using:
+```
+conda deactivate
+```
+
 
 
