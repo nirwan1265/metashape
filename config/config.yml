@@ -5,10 +5,10 @@ photo_path: "/mnt/ghowl/uav_raw/2022/"
 multispectral: False # If RGB, set to False. If multispectral, set to True.
 
 # Path to exports and log files
-output_path: "/mnt/ghowl/metashape_outputs/log"
+output_path: "/mnt/ghowl/uav_raw/metashape_outputs/log"
 
 # Path to save project file (.psx)
-project_path: "/mnt/ghowl/metaspace_projects/"
+project_path: "/mnt/ghowl/uav_raw/metaspace_projects/"
 
 # Identifier for the run. Will also be used for output files.
 run_name: "field01_rgb_run001"
