@@ -5,7 +5,7 @@ photo_path: "/mnt/ghowl/uav_raw/2022/"
 multispectral: False # If RGB, set to False. If multispectral, set to True.
 
 # Path to exports and log files
-output_path: "/home/wolftech/ntanduk/Documents/metashape_pipelinemetashape_outputs/log"
+output_path: "/home/wolftech/ntanduk/Documents/metashape_pipeline/metashape_outputs/log"
 
 # Path to save project file (.psx)
 project_path: "/home/wolftech/ntanduk/Documents/metashape_pipeline/metaspace_projects/"
