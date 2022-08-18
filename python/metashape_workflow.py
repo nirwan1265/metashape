@@ -5,7 +5,7 @@ import sys
 import Metashape
 import yaml
 import metashape_functions as meta
-import pyyaml
+import read_yaml
 
 
 if(sys.stdin.isatty()):
