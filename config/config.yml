@@ -1,4 +1,10 @@
-# This is an example of a yaml configuration file for Metashape
+# This is the yaml configuration file for Metashape
+
+# Project to load. If not a blank string, this will open an existing project at the path specified. If a blank string, creates a new empty project.
+# Even if opening an existing project, all processing on it is saved as a new project (path and name specified below). The original project file is not modified.
+# When no project is specified, photos are automatically added to the new project as the first step. When a project is specified, photos are not added because they are assumed to be in the project.
+load_project: ""
+
 
 # Path to the main flight photos
 photo_path: "/mnt/ghowl/uav_raw/2022/"
