@@ -8,6 +8,15 @@ import metashape_functions as meta
 
 
 
+if(sys.stdin.isatty()):
+    config_file = sys.argv[1]
+else:
+    config_file = manual_config_file
+
+## Parse the config file
+cfg = read_yaml.read_yaml(config_file)
+
+
 #Running the Metashape workflow
 
 doc, log, run_id = meta.project_setup(cfg)
