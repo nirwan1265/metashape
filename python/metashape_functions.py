@@ -7,6 +7,7 @@ import glob
 import re
 import yaml
 import Metashape
+import pyyaml
 
 # Function for project setup 
 sep = "; "
