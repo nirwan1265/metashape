@@ -8,6 +8,9 @@ import metashape_functions as meta
 import read_yaml
 
 
+# Config file:
+manual_config_file = "config/example_dev.yml"
+
 if(sys.stdin.isatty()):
     config_file = sys.argv[1]
 else:
