@@ -71,7 +71,7 @@ def project_setup(cfg):
         
     
     # Save doc as a new project regardless of old or new project
-    doc.save(projec_file)
+    doc.save(project_file)
     
     
     
@@ -455,3 +455,40 @@ def finish_run(log_file,config_file):
 
 
     return True
+
+
+def enable_and_log_gpu(log_file):
+    '''
+    Enables GPU and logs GPU specs
+    '''
+
+    gpustringraw = str(Metashape.app.enumGPUDevices())
+    gpucount = gpustringraw.count("name': '")
+    gpustring = ''
+    currentgpu = 1
+    while gpucount >= currentgpu:
+        if gpustring != '': gpustring = gpustring+', '
+        gpustring = gpustring+gpustringraw.split("name': '")[currentgpu].split("',")[0]
+        currentgpu = currentgpu+1
+    #gpustring = gpustringraw.split("name': '")[1].split("',")[0]
+    gpu_mask = Metashape.app.gpu_mask
+
+    with open(log_file, 'a') as file:
+        file.write(sep.join(['Number of GPUs Found', str(gpucount)]) +'\n')
+        file.write(sep.join(['GPU Model', gpustring])+'\n')
+        file.write(sep.join(['GPU Mask', str(gpu_mask)])+'\n')
+
+        # If a GPU exists but is not enabled, enable the 1st one
+        if (gpucount > 0) and (gpu_mask == 0):
+            Metashape.app.gpu_mask = 1
+            gpu_mask = Metashape.app.gpu_mask
+            file.write(sep.join(['GPU Mask Enabled', str(gpu_mask)])+'\n')
+
+        # This writes down all the GPU devices available
+        #file.write('GPU(s): '+str(Metashape.app.enumGPUDevices())+'\n')
+
+    # set Metashape to *not* use the CPU during GPU steps (appears to be standard wisdom)
+    Metashape.app.cpu_enable = False
+
+    return True
+

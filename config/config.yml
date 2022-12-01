@@ -5,22 +5,28 @@
 # When no project is specified, photos are automatically added to the new project as the first step. When a project is specified, photos are not added because they are assumed to be in the project.
 load_project: ""
 
+# Project coordinate system
+project_crs: "EPSG::2264"
 
 # Path to the main flight photos
-photo_path: "/mnt/ghowl/uav_raw/2022/"
+photo_path: "/mnt/ghowl/uav_raw/2022/DJI_202206090819_001_2022-RRA-Trial-Caswell/"
 multispectral: False # If RGB, set to False. If multispectral, set to True.
 
 # Path to exports and log files
-output_path: "/home/wolftech/ntanduk/Documents/metashape_pipeline/metashape_outputs/log"
+output_path: "/home/wolftech/jlgage/metashape/"
 
 # Path to save project file (.psx)
-project_path: "/home/wolftech/ntanduk/Documents/metashape_pipeline/metaspace_projects/"
+project_path: "/home/wolftech/jlgage/metashape/"
 
 # Identifier for the run. Will also be used for output files.
-run_name: "field01_rgb_run001"
+run_name: "caswell"
+
+# Enable metashape "fine-level task subdivision" which reduces memory use by breaking processing into independent chunks that are run in series.
+# Assuming there's enough memory, it seems to run 10-20% faster by disabling subdividing. But large projects can run out memory and fail if subdivide is not enabled.
+subdivide_task: True
 
 #GCPs files. 
-addGCGPs:
+addGCPs:
     enabled: False
     
 alignPhotos: # (Metashape: alignPhotos)

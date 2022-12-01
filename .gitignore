@@ -1,0 +1,11 @@
+# Ignore license file
+metashape.lic
+
+# These are the files generated during a processing run (if saved in the metashape directory)
+# Ignoring them makes sure we don't accidentally track results of processing images (they can be large too)
+*.psx
+*.files/
+*_log.txt
+
+# Python cache files
+python/__pycache__/
