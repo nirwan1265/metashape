@@ -9,6 +9,10 @@ This space is intended to explain the proper workflow for Metaspace for image pr
 * Python: Latest version of Python with [Anaconda distribution](https://www.anaconda.com/products/distribution).
 * Metashape: Install the python module of Metashape using the [link](https://agisoft.freshdesk.com/support/solutions/articles/31000148930-how-to-install-metashape-stand-alone-python-module).
 * Metashape license
+```
+echo 'export PATH="$HOME/anaconda3/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
 
 ## Usage
 
