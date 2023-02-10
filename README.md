@@ -18,7 +18,7 @@ source ~/.bashrc
 
 The script will run in the command line. An example command will look something like:
 ```
-python <python_script.py> <config_file.yml>
+python python/metashape_workflow.py config/config.yml
 ```
 The python script and the config file is in the repo. 
 
