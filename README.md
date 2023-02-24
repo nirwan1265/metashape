@@ -10,7 +10,7 @@ This space is intended to explain the proper workflow for Metaspace for image pr
 * Metashape: Install the python module of Metashape using the [link](https://agisoft.freshdesk.com/support/solutions/articles/31000148930-how-to-install-metashape-stand-alone-python-module).
 * Metashape license
 ```
-echo 'export PATH="$HOME/anaconda3/bin:$PATH"' >> ~/.bashrc
+echo 'export agisoft_LICENSE=/usr/local/bin/metashape-pro' >> ~/.bashrc
 source ~/.bashrc
 ```
 
