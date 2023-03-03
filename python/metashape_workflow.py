@@ -2,7 +2,7 @@
 
 ## Modules required:
 import sys
-import Metashape
+import metashape
 import yaml
 import metashape_functions as meta
 import read_yaml
