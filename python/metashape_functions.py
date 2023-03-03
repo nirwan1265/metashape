@@ -6,7 +6,7 @@ import os
 import glob
 import re
 import yaml
-import Metashape
+import metashape
 import read_yaml
 
 # Function for project setup 
