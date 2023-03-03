@@ -1,5 +1,5 @@
 import yaml
-import Metashape
+import metashape
 
 
 def convert_objects(a_dict):
