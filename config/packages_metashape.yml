@@ -9,13 +9,6 @@ dependencies:
  - pandas
  - matplotlib
  - scipy 
- - Metashape
  - time
- - datetime
- - os
- - platform
- - glob
- - re
  - pyyaml
- - sys
  

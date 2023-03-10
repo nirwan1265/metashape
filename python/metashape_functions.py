@@ -193,8 +193,8 @@ def build_dense_cloud(doc, log_file, run_id, cfg):
     timer3a = time.time()
 
     # build dense cloud
-    doc.chunk.buildDenseCloud(max_neighbors=cfg["buildDenseCloud"]["max_neighbors"],
-                              keep_depth = cfg["buildDenseCloud"]["keep_depth"],
+    doc.chunk.buildPointCloud(max_neighbors=cfg["buildDenseCloud"]["max_neighbors"],
+                             keep_depth = cfg["buildDenseCloud"]["keep_depth"],
                               subdivide_task = cfg["subdivide_task"],
                               point_colors = True)
     doc.save()
@@ -217,7 +217,7 @@ def build_dense_cloud(doc, log_file, run_id, cfg):
         # get a beginning time stamp for the next step
         timer_a = time.time()
 
-        doc.chunk.dense_cloud.classifyGroundPoints(max_angle=cfg["buildDenseCloud"]["max_angle"],
+        doc.chunk.point_cloud.classifyGroundPoints(max_angle=cfg["buildDenseCloud"]["max_angle"],
                                                    max_distance=cfg["buildDenseCloud"]["max_distance"],
                                                    cell_size=cfg["buildDenseCloud"]["cell_size"])
         doc.save()
@@ -242,16 +242,16 @@ def build_dense_cloud(doc, log_file, run_id, cfg):
 
         if cfg["buildDenseCloud"]["classes"] == "ALL":
             # call without classes argument (Metashape then defaults to all classes)
-            doc.chunk.exportPoints(path=output_file,
-                                   source_data=Metashape.DenseCloudData,
-                                   format=Metashape.PointsFormatLAS,
+            doc.chunk.exportPointCloud(path=output_file,
+                                   source_data=Metashape.PointCloudData,
+                                   format=Metashape.PointCloudFormatLAS,
                                    crs=Metashape.CoordinateSystem(cfg["project_crs"]),
                                    subdivide_task=cfg["subdivide_task"])
         else:
             # call with classes argument
-            doc.chunk.exportPoints(path=output_file,
-                                   source_data=Metashape.DenseCloudData,
-                                   format=Metashape.PointsFormatLAS,
+            doc.chunk.exportPointCloud(path=output_file,
+                                   source_data=Metashape.PointCloudData,
+                                   format=Metashape.PointCloudFormatLAS,
                                    crs=Metashape.CoordinateSystem(cfg["project_crs"]),
                                    clases=cfg["buildDenseCloud"]["classes"],
                                    subdivide_task=cfg["subdivide_task"])
@@ -279,7 +279,7 @@ def build_dem(doc, log_file, run_id, cfg):
 
         if (cfg["buildDem"]["type"] == "DSM") | (cfg["buildDem"]["type"] == "both"):
             # call without classes argument (Metashape then defaults to all classes)
-            doc.chunk.buildDem(source_data = Metashape.DenseCloudData,
+            doc.chunk.buildDem(source_data = Metashape.PointCloudData,
                                subdivide_task = cfg["subdivide_task"],
                                projection = projection)
             output_file = os.path.join(cfg["output_path"], run_id + '_dsm.tif')
@@ -291,7 +291,7 @@ def build_dem(doc, log_file, run_id, cfg):
                                        image_compression=compression)
         if (cfg["buildDem"]["type"] == "DTM") | (cfg["buildDem"]["type"] == "both"):
             # call with classes argument
-            doc.chunk.buildDem(source_data = Metashape.DenseCloudData,
+            doc.chunk.buildDem(source_data = Metashape.PointCloudData,
                                classes = Metashape.PointClass.Ground,
                                subdivide_task = cfg["subdivide_task"],
                                projection = projection)
@@ -408,14 +408,14 @@ def build_orthomosaics(doc, log_file, run_id, cfg):
     # Otherwise use Metashape point cloud to build elevation model
     # DTM: use ground points only
     if (cfg["buildOrthomosaic"]["surface"] == "DTM") | (cfg["buildOrthomosaic"]["surface"] == "DTMandDSM"):
-        doc.chunk.buildDem(source_data = Metashape.DenseCloudData,
+        doc.chunk.buildDem(source_data = Metashape.PointCloudData,
                            classes=Metashape.PointClass.Ground,
                            subdivide_task=cfg["subdivide_task"],
                            projection=projection)
         build_export_orthomosaic(doc, log_file, run_id, cfg, file_ending = "dtm")
     # DSM: use all point classes
     if (cfg["buildOrthomosaic"]["surface"] == "DSM") | (cfg["buildOrthomosaic"]["surface"] == "DTMandDSM"):
-        doc.chunk.buildDem(source_data = Metashape.DenseCloudData,
+        doc.chunk.buildDem(source_data = Metashape.PointCloudData,
                            subdivide_task=cfg["subdivide_task"],
                            projection=projection)
         build_export_orthomosaic(doc, log_file, run_id, cfg, file_ending = "dsm")
@@ -445,7 +445,7 @@ def finish_run(log_file,config_file):
 
     # open run configuration again. We can't just use the existing cfg file because its objects had already been converted to Metashape objects (they don't write well)
     with open(config_file) as file:
-        config_full = yaml.load(file)
+        config_full = yaml.load(file, Loader=yaml.Loader)
 
     # write the run configuration to the log file
     with open(log_file, 'a') as file:
