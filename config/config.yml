@@ -52,7 +52,7 @@ buildDenseCloud: # (Metashape: buildDepthMaps, buildDenseCloud, classifyGroundPo
     cell_size: 50.0 # Recommended: 50.0
     ## For dense cloud export (exportPoints)
     export: True # Whether to export dense cloud file.
-    format: Metashape.PointsFormatLAS # Recommended: PointsFormatLAS. The file format to export points in.
+    format: Metashape.PointCloudFormatLAS # Recommended: PointsFormatLAS. The file format to export points in.
     classes: "ALL" # Recommended: "ALL". Point classes to export. Must be a list. Or can set to "ALL" to use all points. An example of a specific class is: Metashape.PointClass.Ground
     
 buildDem: # (Metashape: buildDem, exportRaster)

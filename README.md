@@ -65,6 +65,13 @@ Activate the environment by using:
 ```
 conda activate /usr/local/usrapps/[your_path]/metashape
 ```
+Once activated, install the Metashape python module directly from Agisoft. 
+The whl file and install command may change if version updates. Info on installing the standalone module can be found here https://agisoft.freshdesk.com/support/solutions/articles/31000148930-how-to-install-metashape-stand-alone-python-module
+```
+wget https://s3-eu-west-1.amazonaws.com/download.agisoft.com/Metashape-2.0.2-cp37.cp38.cp39.cp310.cp311-abi3-linux_x86_64.whl
+python3 -m pip install Metashape-2.0.2-cp37.cp38.cp39.cp310.cp311-abi3-linux_x86_64.whl
+```
+
 Deactivate the environment by using:
 ```
 conda deactivate
