@@ -133,6 +133,13 @@ def align_photos(doc, log_file, cfg):
                           subdivide_task = cfg["subdivide_task"])
     doc.chunk.alignCameras(adaptive_fitting=cfg["alignPhotos"]["adaptive_fitting"],
                            subdivide_task = cfg["subdivide_task"])
+    doc.chunk.optimizeCameras(fit_f=True,
+                              fit_cx=True, fit_cy=True,
+                              fit_b1=True, fit_b2=True,
+                              fit_k1=True, fit_k2=True, fit_k3=True, fit_k4=True,
+                              fit_p1=True, fit_p2=True,
+                              fit_corrections=True)
+
     doc.save()
     
     # Get an ending time stamp
